@@ -13,6 +13,13 @@ class API < Grape::API
       Book.find(params[:id])
     end
 
+    post do
+      Book.create({
+        title: params[:title],
+        author: params[:author]
+      });
+    end
+
     put ':id' do
       Book.find(params[:id]).update({
         title: params[:title],
